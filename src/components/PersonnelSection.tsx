@@ -426,7 +426,7 @@ const handleSelectBasePersonnel = async (basePersonnel: BasePersonnel) => {
               className={`flex items-center gap-2 text-lg font-medium ${isDark ? 'text-gray-200' : 'text-gray-900'}`}
             >
               <HardHat className={`w-5 h-5 ${isDark ? 'text-blue-400' : 'text-blue-500'}`} />
-              Personnel présent
+              Personnel présents
               <ChevronDown className={`w-5 h-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
             </button>
             <div className="group relative">
