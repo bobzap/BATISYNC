@@ -408,7 +408,7 @@ const handleSelectBasePersonnel = async (basePersonnel: BasePersonnel) => {
         >
           <div className="flex items-center gap-2">
             <HardHat className={`w-5 h-5 ${isDark ? 'text-blue-400' : 'text-blue-500'}`} />
-            Personnel présent
+            Personnel présents
           </div>
           <ChevronRight className={`w-5 h-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
         </button>
