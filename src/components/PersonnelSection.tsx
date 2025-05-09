@@ -99,7 +99,6 @@ export function PersonnelSection({ personnel, onPersonnelChange, isOpen, onToggl
         .select(`
           id, 
           personnel_id,
-          numero_personnel,
           personnel:personnel_id (numero_personnel)
         `)
         .eq('project_id', projectId)
@@ -122,13 +121,6 @@ export function PersonnelSection({ personnel, onPersonnelChange, isOpen, onToggl
       }
       
       // Pour personnel externe - vérifier si numero_personnel = matricule
-      if (!entryToUpdate && personne.matricule) {
-        entryToUpdate = projectPersonnelEntries.find(entry => 
-          entry.numero_personnel === personne.matricule
-        );
-        console.log("Recherche par numero_personnel:", entryToUpdate);
-      }
-      
       // Pour personnel interne - vérifier via personnel.numero_personnel
       if (!entryToUpdate && personne.matricule) {
         entryToUpdate = projectPersonnelEntries.find(entry => 
@@ -190,7 +182,6 @@ export function PersonnelSection({ personnel, onPersonnelChange, isOpen, onToggl
           entreprise: newPersonnel.entreprise || 'PFSA',
           equipe: newPersonnel.equipe || '',
           zone: '',
-          numero_personnel: newPersonnel.matricule || '', // Stocker le matricule externe ici
           date_debut: new Date().toISOString().split('T')[0],
           statut: 'actif'
         })
@@ -267,7 +258,6 @@ export function PersonnelSection({ personnel, onPersonnelChange, isOpen, onToggl
         .select(`
           id, 
           personnel_id,
-          numero_personnel,
           personnel:personnel_id (numero_personnel)
         `)
         .eq('project_id', projectId)
@@ -286,12 +276,6 @@ export function PersonnelSection({ personnel, onPersonnelChange, isOpen, onToggl
       }
       
       // Pour personnel externe - vérifier si numero_personnel = matricule
-      if (!entryToUpdate && personnelToUpdate.matricule) {
-        entryToUpdate = projectPersonnelEntries.find(entry => 
-          entry.numero_personnel === personnelToUpdate.matricule
-        );
-      }
-      
       // Pour personnel interne - vérifier via personnel.numero_personnel
       if (!entryToUpdate && personnelToUpdate.matricule) {
         entryToUpdate = projectPersonnelEntries.find(entry => 
@@ -309,7 +293,6 @@ export function PersonnelSection({ personnel, onPersonnelChange, isOpen, onToggl
               intitule_fonction: updates.role !== undefined ? updates.role : personnelToUpdate.role,
               entreprise: updates.entreprise !== undefined ? updates.entreprise : personnelToUpdate.entreprise,
               equipe: updates.equipe !== undefined ? updates.equipe : personnelToUpdate.equipe,
-              numero_personnel: updates.matricule !== undefined ? updates.matricule : personnelToUpdate.matricule,
               updated_at: new Date().toISOString()
             })
             .eq('id', entryToUpdate.id);
