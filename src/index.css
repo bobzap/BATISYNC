@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  .dark {
+    color-scheme: dark;
+  }
+  
+  body {
+    @apply bg-gray-100 text-gray-900;
+  }
+  
+  .dark body {
+    @apply bg-dark-900 text-gray-100;
+  }
+}
+
+@layer components {
+  .input-dark {
+    @apply bg-dark-600 border-dark-500 text-gray-100 placeholder-gray-400 
+           focus:border-blue-500 focus:ring-blue-500/20;
+  }
+
+  .input-light {
+    @apply bg-gray-100 border-gray-300 text-gray-800 placeholder-gray-500
+           focus:border-blue-400 focus:ring-blue-400/20 shadow-sm
+           transition-all duration-200;
+  }
+  
+  .button-primary {
+    @apply inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium
+           transition-all duration-200 ease-in-out;
+    @apply dark:bg-blue-500 dark:hover:bg-blue-400 dark:text-white
+           bg-blue-500 hover:bg-blue-600 text-white shadow-sm hover:shadow-md;
+    @apply cursor-pointer disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .button-secondary {
+    @apply inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium border
+           transition-all duration-200 ease-in-out;
+    @apply dark:bg-dark-800 dark:hover:bg-dark-700 dark:text-gray-200 dark:border-dark-700
+           bg-white hover:bg-gray-50 text-gray-700 border-gray-100 shadow-sm hover:shadow-md;
+    @apply cursor-pointer disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .card-dark {
+    @apply bg-dark-800 border border-dark-700;
+  }
+
+  .card-light {
+    @apply bg-white border border-gray-100 shadow-sm hover:shadow-md 
+           transition-all duration-200;
+  }
+
+  .section-header {
+    @apply text-lg font-medium flex items-center gap-2;
+    @apply dark:text-gray-200 text-blue-900;
+  }
+
+  .section-icon {
+    @apply w-5 h-5;
+    @apply dark:text-blue-400 text-blue-500;
+  }
+
+  .form-section {
+    @apply rounded-xl p-6 mb-6;
+    @apply dark:card-dark card-light;
+  }
+
+  .form-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium mb-1.5;
+    @apply dark:text-gray-300 text-blue-900;
+  }
+
+  .form-input {
+    @apply w-full rounded-lg text-sm transition-all duration-200;
+    @apply dark:input-dark input-light;
+  }
+
+  .form-select {
+    @apply w-full rounded-lg text-sm py-2 transition-all duration-200
+           dark:bg-dark-600 dark:border-dark-500 dark:text-gray-100
+           bg-gray-100 border-gray-300 text-gray-800;
+    @apply dark:input-dark input-light;
+  }
+
+  .form-button {
+    @apply button-primary;
+  }
+
+  .form-button-secondary {
+    @apply button-secondary;
+  }
+
+  .grid-item {
+    @apply p-4 rounded-xl border transition-all duration-200;
+    @apply dark:bg-dark-800 dark:border-dark-700 dark:hover:bg-dark-700
+           bg-white border-gray-100 hover:border-gray-200 hover:shadow-md;
+  }
+
+  .stat-card {
+    @apply p-5 rounded-xl transition-all duration-200;
+    @apply dark:bg-dark-800 dark:border-dark-700
+           bg-white border border-gray-100 shadow-sm hover:shadow-md;
+  }
+
+  .stat-icon {
+    @apply h-6 w-6;
+    @apply dark:text-blue-400 text-blue-500;
+  }
+
+  .stat-label {
+    @apply text-sm font-medium truncate;
+    @apply dark:text-gray-400 text-blue-900;
+  }
+
+  .stat-value {
+    @apply text-2xl font-semibold;
+    @apply dark:text-gray-200 text-blue-900;
+  }
+
+  .action-card {
+    @apply relative block w-full rounded-xl border-2 border-dashed p-12 text-center
+           transition-all duration-200;
+    @apply dark:border-dark-700/50 dark:hover:border-dark-600 
+           border-blue-200 hover:border-blue-400
+           hover:shadow-md focus:outline-none focus:ring-2
+           dark:focus:ring-blue-400 dark:focus:ring-offset-dark-800
+           focus:ring-blue-400 focus:ring-offset-2;
+  }
+
+  .action-icon {
+    @apply mx-auto h-12 w-12;
+    @apply dark:text-blue-400 text-blue-500;
+  }
+
+  .action-text {
+    @apply mt-2 block text-sm font-medium;
+    @apply dark:text-gray-200 text-blue-900;
+  }
+
+  .nav-link {
+    @apply inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium
+           transition-all duration-200;
+  }
+
+  .nav-link-active {
+    @apply dark:border-blue-500 dark:text-gray-200
+           border-blue-500 text-blue-900;
+  }
+
+  .nav-link-inactive {
+    @apply dark:border-transparent dark:text-gray-400 dark:hover:border-blue-500/50 dark:hover:text-gray-300
+           border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700;
+  }
+
+  .table-header {
+    @apply px-3 py-2 text-left text-xs font-medium uppercase tracking-wider;
+    @apply dark:text-gray-400 text-blue-900;
+  }
+
+  .table-cell {
+    @apply px-3 py-2 text-sm;
+    @apply dark:text-gray-300 text-blue-900;
+  }
+
+  .table-row {
+    @apply transition-colors duration-200;
+    @apply dark:hover:bg-dark-700 hover:bg-blue-50;
+  }
+
+  .tooltip {
+    @apply invisible absolute z-50 px-6 py-4 rounded-lg shadow-lg w-96 text-sm
+           transition-opacity duration-300 opacity-0 group-hover:visible group-hover:opacity-100;
+    @apply dark:bg-blue-900/90 dark:border dark:border-blue-800 dark:text-blue-100
+           bg-blue-50 border border-blue-200 text-blue-700;
+    left: calc(100% + 1rem);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.2s ease-out;
+  }
+
+  /* Variables de couleurs pour les événements */
+  .event-livraison {
+    @apply dark:bg-amber-500/20 dark:hover:bg-amber-500/30 dark:border-amber-500/30
+           bg-amber-50 hover:bg-amber-100 border-amber-200;
+  }
+  
+  .event-intervention {
+    @apply dark:bg-violet-500/20 dark:hover:bg-violet-500/30 dark:border-violet-500/30
+           bg-violet-100 hover:bg-violet-200 border-violet-200;
+  }
+  
+  .event-autre {
+    @apply dark:bg-emerald-500/20 dark:hover:bg-emerald-500/30 dark:border-emerald-500/30
+           bg-emerald-100 hover:bg-emerald-200 border-emerald-200;
+  }
+
+  .event-livraison-pile {
+    @apply dark:bg-amber-500/10 bg-amber-50/80;
+  }
+  
+  .event-intervention-pile {
+    @apply dark:bg-violet-500/10 bg-violet-50;
+  }
+  
+  .event-autre-pile {
+    @apply dark:bg-emerald-500/10 bg-emerald-50;
+  }
+
+  .event-text-livraison {
+    @apply dark:text-amber-300 text-amber-700;
+  }
+  
+  .event-text-intervention {
+    @apply dark:text-violet-300 text-violet-800;
+  }
+  
+  .event-text-autre {
+    @apply dark:text-emerald-300 text-emerald-800;
+  }
+}
