@@ -281,7 +281,7 @@ const handlePersonnelSelect = async (selectedPerson: any) => {
           isDark ? 'text-gray-200' : 'text-gray-900'
         }`}>
           <ClipboardList className="w-5 h-5" />
-          Personnel présent ({personnel.length})
+          Personnel présents ({personnel.length})
         </h3>
         <button 
           type="button"
