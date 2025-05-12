@@ -180,21 +180,21 @@ export function PersonnelSection({ personnel, onPersonnelChange, isOpen, onToggl
       
       // Insérer dans project_personnel
       const { data, error } = await supabase
-        .from('project_personnel')
-        .insert({
-          project_id: projectId,
-          personnel_id: null, // null pour personnel externe
-          nom: newPersonnel.nom,
-          prenom: " ", // espace simple pour satisfaire la contrainte
-          intitule_fonction: newPersonnel.role,
-          entreprise: newPersonnel.entreprise || 'PFSA',
-          equipe: newPersonnel.equipe || '',
-          zone: '',
-          numero_personnel: newPersonnel.matricule || '', // Stocker le matricule externe ici
-          date_debut: new Date().toISOString().split('T')[0],
-          statut: 'actif'
-        })
-        .select();
+  .from('project_personnel')
+  .insert({
+    project_id: projectId,
+    personnel_id: null, // null pour personnel externe
+    nom: newPersonnel.nom,
+    prenom: " ", // espace simple pour satisfaire la contrainte
+    intitule_fonction: newPersonnel.role,
+    entreprise: newPersonnel.entreprise || 'PFSA',
+    equipe: newPersonnel.equipe || '',
+    zone: '',
+    numero_personnel: newPersonnel.matricule || '', // Stocker le matricule externe ici
+    date_debut: new Date().toISOString().split('T')[0],
+    statut: 'actif'
+  })
+  .select();
       
       if (error) {
         console.error("Erreur insertion:", error);
