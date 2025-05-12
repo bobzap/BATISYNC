@@ -95,15 +95,15 @@ export function PersonnelSection({ personnel, onPersonnelChange, isOpen, onToggl
   
       // Approche simplifiée - récupérer toutes les entrées et chercher la correspondance
       const { data: projectPersonnelEntries } = await supabase
-        .from('project_personnel')
-        .select(`
-          id, 
-          personnel_id,
-          numero_personnel,
-          personnel:personnel_id (numero_personnel)
-        `)
-        .eq('project_id', projectId)
-        .eq('statut', 'actif');
+  .from('project_personnel')
+  .select(`
+    id, 
+    personnel_id,
+    numero_personnel,
+    personnel:personnel_id (numero_personnel)
+  `)
+  .eq('project_id', projectId)
+  .eq('statut', 'actif');
       
       console.log("Entrées trouvées:", projectPersonnelEntries);
       
